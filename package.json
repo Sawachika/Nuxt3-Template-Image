@@ -6,16 +6,26 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint --ext .js,.vue . --fix"
+    "lint:js": "eslint --ext .js,.vue . --fix",
+    "lint:style": "stylelint \"**/*.{vue,styl}\" --ignore-path .gitignore --fix"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
+    "@nuxtjs/stylelint-module": "^5.0.0",
+    "@unocss/extractor-pug": "^0.50.4",
+    "@unocss/nuxt": "^0.50.4",
     "eslint": "^8.35.0",
-    "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.9.0",
     "nuxt": "^3.2.3",
-    "prettier": "^2.8.4"
+    "postcss": "^8.4.21",
+    "postcss-html": "^0.36.0",
+    "postcss-syntax": "^0.36.2",
+    "pug": "^3.0.2",
+    "stylelint": "^14.16.1",
+    "stylelint-config-idiomatic-order": "^9.0.0",
+    "stylelint-config-standard": "^30.0.1",
+    "stylelint-stylus": "^0.18.0",
+    "stylus": "^0.59.0"
   }
 }

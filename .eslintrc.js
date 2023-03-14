@@ -1,8 +1,9 @@
 module.exports = {
   root: true,
-  extends: ['@nuxt/eslint-config', 'plugin:prettier/recommended', 'plugin:vue/vue3-recommended', 'plugin:nuxt/recommended', 'prettier'],
+  extends: ['@nuxt/eslint-config', 'plugin:vue/vue3-recommended', 'plugin:nuxt/recommended'],
   rules: {
     'array-bracket-spacing': 2,
+    'arrow-parens': ['error', 'as-needed'],
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
     'comma-spacing': 2,
     indent: ['error', 2],
@@ -17,17 +18,6 @@ module.exports = {
     'space-before-blocks': 2,
     'space-in-parens': 2,
     'space-infix-ops': 2,
-    semi: ['error', 'never'],
-    'prettier/prettier': [
-      'error',
-      {
-        arrowParens: 'avoid',
-        printWidth: 140,
-        semi: false,
-        singleQuote: true,
-        tabWidth: 2,
-        trailingComma: 'none'
-      }
-    ]
+    semi: ['error', 'never']
   }
 }

@@ -1,5 +1,11 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.customSyntax": "stylelint-stylus/custom-syntax",
+  "stylelint.validate": [
+    "stylus",
+    "vue",
+  ]
 }
