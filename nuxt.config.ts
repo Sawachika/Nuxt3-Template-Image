@@ -8,8 +8,11 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/stylelint-module',
     '@unocss/nuxt',
+    '@vueuse/nuxt',
+    'nuxt-icon',
   ],
   stylelint: { lintOnStart: false },
+  css: ['the-new-css-reset/css/reset.css', '@/assets/global.styl'],
   unocss: {
     attributify: true,
     icons: true,
@@ -18,9 +21,5 @@ export default defineNuxtConfig({
       extractorSplit,
       extractorPug(),
     ],
-  },
-  sourcemap: {
-    server: true,
-    client: false,
   },
 })

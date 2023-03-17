@@ -14,10 +14,15 @@
     "@nuxtjs/stylelint-module": "^5.0.0",
     "@unocss/extractor-pug": "^0.50.4",
     "@unocss/nuxt": "^0.50.4",
+    "@vueuse/components": "^9.13.0",
+    "@vueuse/core": "^9.13.0",
+    "@vueuse/nuxt": "^9.13.0",
     "eslint": "^8.35.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^9.9.0",
+    "eslint-plugin-vue-pug": "^0.6.0",
     "nuxt": "^3.2.3",
+    "nuxt-icon": "^0.3.2",
     "postcss": "^8.4.21",
     "postcss-html": "^0.36.0",
     "postcss-syntax": "^0.36.2",
@@ -27,5 +32,11 @@
     "stylelint-config-standard": "^30.0.1",
     "stylelint-stylus": "^0.18.0",
     "stylus": "^0.59.0"
+  },
+  "dependencies": {
+    "@types/imagesloaded": "^4.1.2",
+    "@types/masonry-layout": "^4.2.5",
+    "imagesloaded": "^5.0.0",
+    "the-new-css-reset": "^1.8.4"
   }
 }

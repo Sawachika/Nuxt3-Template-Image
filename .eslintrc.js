@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['@nuxt/eslint-config', 'plugin:vue/vue3-recommended', 'plugin:nuxt/recommended'],
+  extends: ['@nuxt/eslint-config', 'plugin:vue/vue3-recommended', 'plugin:vue-pug/vue3-recommended', 'plugin:nuxt/recommended'],
   rules: {
     'array-bracket-spacing': 2,
     'arrow-parens': ['error', 'as-needed'],
@@ -18,6 +18,6 @@ module.exports = {
     'space-before-blocks': 2,
     'space-in-parens': 2,
     'space-infix-ops': 2,
-    semi: ['error', 'never']
+    semi: ['error', 'never'],
   }
 }
