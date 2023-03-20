@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/device',
     '@unocss/nuxt',
     '@vueuse/nuxt',
     'nuxt-icon',

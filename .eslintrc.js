@@ -19,5 +19,7 @@ module.exports = {
     'space-in-parens': 2,
     'space-infix-ops': 2,
     semi: ['error', 'never'],
+    'vue/multi-word-component-names': 0,
+    'vue/no-multiple-template-root': 0,
   }
 }
