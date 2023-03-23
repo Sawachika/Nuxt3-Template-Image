@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { extractorSplit } from '@unocss/core'
 import extractorPug from '@unocss/extractor-pug'
+import variantGroup from '@unocss/transformer-variant-group'
+
 export default defineNuxtConfig({
   typescript: {
     shim: false
@@ -8,10 +10,14 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/stylelint-module',
     '@nuxtjs/device',
+    '@pinia/nuxt',
     '@unocss/nuxt',
     '@vueuse/nuxt',
+    '@element-plus/nuxt',
     'nuxt-icon',
   ],
+  pinia: { autoImports: ['defineStore'] },
+  imports: { dirs: ['stores'] },
   stylelint: { lintOnStart: false },
   css: ['the-new-css-reset/css/reset.css', '@/assets/global.styl'],
   unocss: {
@@ -22,5 +28,6 @@ export default defineNuxtConfig({
       extractorSplit,
       extractorPug(),
     ],
+    transformers: [variantGroup()]
   },
 })
