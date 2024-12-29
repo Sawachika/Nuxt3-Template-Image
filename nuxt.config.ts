@@ -5,21 +5,25 @@ import variantGroup from '@unocss/transformer-variant-group'
 
 export default defineNuxtConfig({
   typescript: {
-    shim: false
+    shim: false,
+    typeCheck: true,
   },
+
   modules: [
+    '@nuxt/eslint',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/device',
     '@pinia/nuxt',
     '@unocss/nuxt',
     '@vueuse/nuxt',
     '@element-plus/nuxt',
-    'nuxt-icon',
+    '@nuxt/icon',
+    'nuxt-swiper',
   ],
-  pinia: { autoImports: ['defineStore'] },
-  imports: { dirs: ['stores'] },
+
   stylelint: { lintOnStart: false },
   css: ['the-new-css-reset/css/reset.css', '@/assets/global.styl'],
+
   unocss: {
     attributify: true,
     icons: true,
@@ -30,4 +34,7 @@ export default defineNuxtConfig({
     ],
     transformers: [variantGroup()]
   },
+
+  elementPlus: { themes: ['dark'] },
+  compatibilityDate: '2024-12-28',
 })
