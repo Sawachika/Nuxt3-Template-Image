@@ -1,8 +1,10 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 Starter
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+Pug + UnoCSS + Stylus + TS
+
 ## Setup
-Development environment install [Node.js v18](https://nodejs.org)
+Development environment install [Node.js v22+](https://nodejs.org)
 ```
 npm install --global pnpm
 ```

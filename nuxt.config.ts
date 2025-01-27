@@ -2,6 +2,7 @@
 import { extractorSplit } from '@unocss/core'
 import extractorPug from '@unocss/extractor-pug'
 import variantGroup from '@unocss/transformer-variant-group'
+import directives from '@unocss/transformer-directives'
 
 export default defineNuxtConfig({
   typescript: {
@@ -32,7 +33,7 @@ export default defineNuxtConfig({
       extractorSplit,
       extractorPug(),
     ],
-    transformers: [variantGroup()]
+    transformers: [variantGroup(), directives()]
   },
 
   elementPlus: { themes: ['dark'] },

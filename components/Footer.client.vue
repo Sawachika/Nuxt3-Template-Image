@@ -1,5 +1,5 @@
 <template lang="pug">
-footer.fixed.bottom-0.flex.justify-between.items-center.w-full.px-4.py-3.bg-hex-1b252f.text-3.text-hex-adbfcf.text-center(
+footer.fixed.bottom-0.flex.justify-between.items-center.gap-2.w-full.px-4.py-2.bg-hex-1b252f.text-3.text-hex-adbfcf.text-center(
   class="md:px-16"
 )
   div

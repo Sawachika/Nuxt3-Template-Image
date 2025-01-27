@@ -1,36 +1,31 @@
 <template lang="pug">
 ClientOnly
-  MasonryWall.pb-16(
-    class="md:px-16"
-    :items="items"
-    :gap="16"
-    :min-columns="2"
-    :max-columns="5"
+  MasonryWall.container.mx-auto.mb-16.px-4(
+    :items="imageStore.lists"
+    :ssr-columns="3"
+    :column-width="300"
+    :gap="8"
+    :max-columns="3"
   )
-    template(#="{ item, index }")
-      NuxtLink.relative.grid(to="/images")
-        img.w-full.object-fit(:class="item.class" src="/preview.jpg")
-        .absolute.bottom-0.flex.items-center.p-2.text-white
-          Icon.bg-red.rounded(name="mdi:link-variant")
-          span.ml-2 Category {{ index }}
+    template(#="{ item }")
+      NuxtLink.grid(to="/images")
+        img.w-full.object-fit.rounded-lg(:src="item.src")
+      .absolute.bottom-0.flex.items-center.w-full.p-2.text-white
+        Icon.bg-black.rounded-full(name="material-symbols:account-circle")
+        span.ms-2 {{ item.author }}
+        Icon.ms-auto(name="material-symbols:favorite-outline-rounded")
 </template>
 
 <script setup lang="ts">
 import { useInfiniteScroll } from '@vueuse/core'
-const items = ref(Array.from({ length: 9 }, () => random()))
+const imageStore = useImageStore()
 
 onMounted(() => {
-  useInfiniteScroll(document,
-    () => {
-      console.log(items.value.length)
-
-      if (items.value.length > 20) return
-      items.value = [...items.value, random(), random(), random()]
-    },
-  )
+  useInfiniteScroll(document, () => { imageStore.loadMore() })
 })
-function random() {
-  const lists = ['aspect-3/2', 'aspect-4/3', 'aspect-5/4']
-  return { class: lists[~~(Math.random() * 3)] }
-}
 </script>
+
+<style lang="stylus" scoped>
+:deep() .masonry-item
+  @apply relative
+</style>

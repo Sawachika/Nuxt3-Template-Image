@@ -1,56 +1,40 @@
 <template lang="pug">
-nav.absolute.p-4.text-white(style="z-index: 2")
-  NuxtLink(to="/")
+nav.fixed.z-2.flex.items-center.w-full.h-10.p-2.bg-hex-000b
+  NuxtLink.grid.text-white(to="/")
     Icon(name="ic:round-close")
-
-Swiper.h-screen(
-  :allow-touch-move="false"
-  :direction="$device.isMobile ? 'vertical' : 'horizontal'"
-  :navigation="$device.isDesktop"
-  :modules="[Navigation]"
-  :speed="$device.isDesktop ? 0 : 300"
-)
-  SwiperSlide.justify-between.items-end.p-4.text-white(v-for="n in 3" :key="n")
-    img.absolute.top-0.left-0.w-full.h-full.object-contain(
-      style="z-index: -1"
-      :src="`https://source.unsplash.com/featured/?sky&${n}`"
-      loading="lazy"
-    )
-    p Image, Author, Category, Datetime
-    .text-3.text-center
-      NuxtLink.cursor-pointer(to="https://twitter.com/intent/tweet?url=http://scroll.intone.cc/images" target="_blank")
-        Icon(name="ant-design:twitter-outlined")
-        p Share
-      .mt-4.cursor-pointer(@click="copy(source)")
-        Icon(name="ic:baseline-content-copy")
-        p copy
+.fixed.z-3.right-0.grid.gap-4.px-2.py-4.rounded.bg-hex-0004.text-white(class="top-[50%] -translate-y-1/2")
+  Icon.prev.cursor-pointer(name="ant-design:up-outlined")
+  Icon.next.cursor-pointer(name="ant-design:down-outlined")
+ClientOnly
+  swiper-container(
+    ref="swiperRef"
+    direction="vertical"
+    :navigation="{ prevEl: '.prev', nextEl: '.next' }"
+  )
+    swiper-slide(v-for="n in 3" :key="n")
+      .flex.flex-col.justify-center.h-100vh.pt-10.text-white
+        img.h-full.object-contain(
+          src="/image/1.jpg"
+          loading="lazy"
+        )
+        .flex.items-center
+          .grid.grid-flow-col.rows-2.items-center.gap-x-2.p-2
+            Icon.row-span-2.w-8.h-8.border-2.rounded-full(name="ant-design:user-outlined")
+            p.font-bold Author
+            p.text-sm Description
+          .flex.gap-4.ms-auto.p-2.text-center
+            Icon(name="ant-design:heart-outlined")
 </template>
 
-<script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation } from 'swiper'
-import { useClipboard } from '@vueuse/core'
-import 'swiper/css'
-import 'swiper/css/navigation'
+<script setup lang="ts">
 definePageMeta({ layout: false })
-useServerSeoMeta({
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Image 1',
-  twitterImage: 'https://source.unsplash.com/featured/?sky',
-  ogTitle: 'Image 1',
-  ogDescription: 'Description 1',
-  ogUrl: 'http://scroll.intone.cc/images',
-  ogImage: 'https://source.unsplash.com/featured/?sky',
-})
-const source = ref('https://source.unsplash.com/featured/?sky')
-const { copy, copied } = useClipboard({ source })
-const { $toast } = useNuxtApp()
-watch(copied, value => {
-  if (value) $toast('Image URL copied.', { multiple: false })
-})
+const swiperRef = ref()
+useSwiper(swiperRef)
 </script>
 
-<style lang="stylus">
-.swiper-slide
-  display flex
+<style lang="stylus" scoped>
+.swiper-button-disabled
+  @apply opacity-30
+::part(container)
+  @apply h-100vh bg-black
 </style>
